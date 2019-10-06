@@ -35,6 +35,7 @@ public class Runner extends Thread {
         Counter counter = new Counter(this);
         timer.schedule(counter,0,1000);
         MemoryListener listener = new MemoryListener();
+
         Environment.on(request.getInput());
         listener.start();
         try {
@@ -46,7 +47,6 @@ public class Runner extends Thread {
             response.setCode(Response.FAILURE);
             if (e.getCause() != null) {
                 onThrowable(e.getCause(), response);
-                e.printStackTrace();
             } else {
                 response.setResult(DomRender.error(Constants.SYSTEM_ERROR_MESSAGE));
             }
@@ -82,7 +82,7 @@ public class Runner extends Thread {
 
     }
 
-    public static class Counter extends TimerTask {
+    static class Counter extends TimerTask {
 
         private int count;
         private Thread task;
@@ -94,7 +94,7 @@ public class Runner extends Thread {
 
         @Override
         public void run() {
-            if(isCancel()) {
+            if(this.isCancel()) {
                 task.stop();
                 this.cancel();
             }
@@ -106,7 +106,7 @@ public class Runner extends Thread {
         }
     }
 
-    public static class MemoryListener extends Thread {
+    static class MemoryListener extends Thread {
         private long init;
         private long max;
         private boolean isListener;
