@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java Online</title>
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+    <link rel="bookmark" href="image/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="font/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/ace.js"></script>
+    <script src="js/ext-language_tools.js"></script>
+</head>
+<body>
+<div class="code">
+    <div class="code-blocks">
+        <div id="editor"></div>
+    </div>
+    <div class="code-line"></div>
+    <div class="code-console">
+        <div class="code-side-edge"></div>
+        <div class="code-console-result"></div>
+        <div class="code-console-tool">
+            <textarea id="input" placeholder="输入参数"></textarea>
+            <textarea id="args" placeholder="args参数"></textarea>
+            <button id="run" onclick="runClick(this)">
+                <i class="fa fa-play"></i>
+                <span>运行</span>
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/index.js"></script>
+</html>

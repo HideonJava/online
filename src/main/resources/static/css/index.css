@@ -1,0 +1,141 @@
+@font-face{
+    font-family: "Fira Code";
+    src: url("../../font/fonts/FiraCode-Bold.ttf");
+}
+
+*{
+    padding:0;
+    margin:0;
+    font-family: "Fira Code";
+    font-weight:bold;
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #01222c;
+}
+
+p i{
+    margin-right: 2px;
+}
+
+html,body,.code{
+    width:100%;
+    height:100%;
+}
+
+.code{
+    display:flex;
+    flex-direction:column;
+}
+
+.code .code-blocks{
+    flex: 1;
+}
+
+.code .code-blocks #editor{
+    width:100%;
+    height:100%;
+}
+
+.code .code-console{
+    height:200px;
+    display:flex;
+    flex-direction: row;
+}
+.code .code-line{
+    height:2px;
+    background:#01313F;
+}
+
+.code .code-console .code-side-edge{
+    width:43px;
+    background:#01313F;
+}
+
+.code .code-console .code-console-result{
+    flex: 7;
+    background:#002B36;
+    padding:5px;
+    overflow:auto;
+}
+
+.code .code-console .code-console-tool{
+    flex: 3;
+    display: flex;
+    flex-direction:column;
+    background:#002B36;
+    padding:5px;
+}
+
+.code .code-console .code-console-tool #args,
+.code .code-console .code-console-tool #input{
+    width: 100%;
+    flex:1;
+    outline:none;
+    border:none;
+    resize:none;
+    color: #d0edf7;
+}
+
+.code .code-console .code-console-tool #input{
+    padding:5px;
+    background: #01313F;
+}
+
+.code .code-console .code-console-tool #args{
+    padding:5px;
+    margin-top:5px;
+    background: #01313F;
+}
+
+.code .code-console .code-console-tool #run{
+    width: 100%;
+    flex:1;
+    outline:none;
+    border:none;
+    color: #d0edf7;
+    margin-top:5px;
+    background: #01313F;
+}
+
+#success{
+    color: #d0edf7;
+}
+
+#error{
+    color: #d9534f;
+}
+
+.ace_tooltip{
+    border: 1px #484747 solid;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);
+    line-height: 1.4;
+    background: #25282c;
+    color: #c1c1c1;
+}
+
+.ace_tooltip hr{
+    visibility: hidden;
+}
+
+.blockquote{
+    display: inline;
+    padding: .2em .4rem;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background:#d9534f;
+    margin-left:5px;
+}
+
+.ace_snippet-marker{
+    background:transparent;
+    border:none;
+}
