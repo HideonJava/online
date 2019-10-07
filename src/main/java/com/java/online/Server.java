@@ -13,13 +13,18 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.io.File;
 import java.net.InetAddress;
 import java.util.Collections;
+import java.util.List;
 
 @SpringBootApplication
 public class Server extends Application{
@@ -28,6 +33,7 @@ public class Server extends Application{
     private ApplicationContext context;
     private int port = 80;
     private String http = "http://%s:%d/";
+    private Logger logger = LoggerFactory.getLogger(SpringApplication.class);
 
     public static void main(String[] args) {
         launch(Launch.args = args);
@@ -60,11 +66,19 @@ public class Server extends Application{
         Scene scene = new Scene(root,750,350);
         Label label = (Label) scene.lookup("#host");
         label.setText(String.format(http, ip, port));
-        TextAreaAppender.setTextArea((TextArea) scene.lookup("#log"));
+        TextArea textArea = (TextArea) scene.lookup("#log");
+        TextAreaAppender.setTextArea(textArea);
         scene.setFill(Color.TRANSPARENT);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
+        File file = new File(Server.class.getResource("/info.txt").getFile());
+        List<String> list = FileUtils.readLines(file, "UTF-8");
+        for (String item: list) {
+            if(!item.startsWith("#") && !item.trim().isEmpty()) {
+                logger.info(item);
+            }
+        }
     }
 
     @Override
