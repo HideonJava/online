@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/server.css" fx:controller="com.java.online.fx.FXController">
+   <top>
+      <HBox fx:id="bar" alignment="CENTER_RIGHT" style="-fx-background-color: #3C3F41;" BorderPane.alignment="CENTER" onMouseDragged="#onMouseDragged" onMousePressed="#onMousePressed">
+         <children>
+            <FontAwesomeIcon fill="#8C8C8C" iconName="COFFEE" size="1.2em" onMouseClicked="#onMinusClick">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </HBox.margin>
+            </FontAwesomeIcon>
+            <Label fx:id="host" maxWidth="-Infinity" prefHeight="15.0" prefWidth="670.0" text="Label">
+               <HBox.margin>
+                  <Insets left="5.0"/>
+               </HBox.margin>
+            </Label>
+            <FontAwesomeIcon fill="#8C8C8C" iconName="MINUS" size="1.2em" onMouseClicked="#onMinusClick">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </HBox.margin>
+            </FontAwesomeIcon>
+            <FontAwesomeIcon fill="#8C8C8C" iconName="CLOSE" size="1.2em" onMouseClicked="#onCloseClick">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </HBox.margin>
+            </FontAwesomeIcon>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <TextArea fx:id="log" maxHeight="315" editable="false" BorderPane.alignment="TOP_CENTER"/>
+   </center>
+</BorderPane>
